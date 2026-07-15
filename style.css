@@ -1,0 +1,23 @@
+* { box-sizing: border-box; font-family: 'Malgun Gothic', sans-serif; }
+body { margin: 0; padding: 20px; background-color: #f4f6f9; }
+.container { display: flex; gap: 20px; height: 95vh; }
+
+/* 사이드바 */
+.sidebar { width: 300px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow-y: auto; }
+.sidebar h2, .sidebar h3 { margin-top: 0; color: #2c3e50; }
+ul { list-style: none; padding: 0; }
+ul li { display: flex; justify-content: space-between; padding: 8px; border-bottom: 1px solid #eee; }
+form { display: flex; flex-direction: column; gap: 10px; }
+input, select, button { padding: 8px; border: 1px solid #ccc; border-radius: 5px; }
+button { background-color: #3498db; color: white; border: none; cursor: pointer; font-weight: bold; }
+button:hover { background-color: #2980b9; }
+
+/* 캘린더 영역 */
+.calendar-wrap { flex: 1; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+#calendar { height: 100%; }
+
+/* 이벤트 색상 */
+.event-duty { background-color: #e67e22 !important; border: none; }
+.event-sleep { background-color: #7f8c8d !important; border: none; }
+.event-leave { background-color: #2ecc71 !important; border: none; }
+.event-rest { background-color: #9b59b6 !important; border: none; pointer-events: none; }
