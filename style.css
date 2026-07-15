@@ -1,23 +1,57 @@
-* { box-sizing: border-box; font-family: 'Malgun Gothic', sans-serif; }
-body { margin: 0; padding: 20px; background-color: #f4f6f9; }
-.container { display: flex; gap: 20px; height: 95vh; }
+/* 모바일 기본 설정 */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; }
+body { background-color: #f4f6f9; color: #333; -webkit-tap-highlight-color: transparent; }
 
-/* 사이드바 */
-.sidebar { width: 300px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow-y: auto; }
-.sidebar h2, .sidebar h3 { margin-top: 0; color: #2c3e50; }
-ul { list-style: none; padding: 0; }
-ul li { display: flex; justify-content: space-between; padding: 8px; border-bottom: 1px solid #eee; }
-form { display: flex; flex-direction: column; gap: 10px; }
-input, select, button { padding: 8px; border: 1px solid #ccc; border-radius: 5px; }
-button { background-color: #3498db; color: white; border: none; cursor: pointer; font-weight: bold; }
-button:hover { background-color: #2980b9; }
+/* 상단 헤더 */
+.top-header { background: #2c3e50; color: white; padding: 15px 20px; text-align: center; position: fixed; top: 0; width: 100%; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.top-header h1 { font-size: 18px; margin: 0; }
 
-/* 캘린더 영역 */
-.calendar-wrap { flex: 1; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-#calendar { height: 100%; }
+/* 메인 컨텐츠 영역 (상단 헤더와 하단 네비 사이) */
+.content-area { margin-top: 55px; margin-bottom: 70px; padding: 15px; }
+
+/* 탭 시스템 */
+.tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
+.tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+/* 카드 스타일 (UI 깔끔하게) */
+.card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.card h2 { font-size: 20px; margin-bottom: 5px; color: #2c3e50; }
+.sub-text { font-size: 14px; color: #7f8c8d; margin-bottom: 20px; }
+
+/* 폼 요소 (터치 최적화) */
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #34495e; }
+/* iOS 화면 확대 방지를 위해 font-size 16px 필수 */
+input, select { width: 100%; padding: 12px; font-size: 16px; border: 1px solid #ddd; border-radius: 8px; background: #fafafa; }
+input:focus, select:focus { outline: none; border-color: #3498db; }
+
+/* 버튼 (엄지손가락으로 누르기 편하게) */
+.btn { width: 100%; padding: 14px; font-size: 16px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; text-align: center; }
+.btn-primary { background: #3498db; color: white; }
+.btn-success { background: #2ecc71; color: white; }
+.btn-danger { background: #e74c3c; color: white; }
+.mt-20 { margin-top: 20px; }
+
+/* 리스트 스타일 */
+.status-list { list-style: none; }
+.status-list li { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 16px; }
+.status-list li:last-child { border-bottom: none; }
+
+/* 하단 네비게이션 바 */
+.bottom-nav { position: fixed; bottom: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 10px 0; box-shadow: 0 -2px 10px rgba(0,0,0,0.05); z-index: 100; border-top: 1px solid #eee; }
+.nav-item { display: flex; flex-direction: column; align-items: center; color: #95a5a6; font-size: 12px; cursor: pointer; width: 25%; }
+.nav-item .icon { font-size: 20px; margin-bottom: 3px; }
+.nav-item.active { color: #3498db; font-weight: bold; }
+
+/* 캘린더 커스텀 (모바일 맞춤) */
+#calendar { background: white; padding: 10px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.fc-toolbar-title { font-size: 1.2em !important; }
+.fc-button { padding: 0.2em 0.5em !important; font-size: 0.9em !important; }
+.fc-event-title { font-size: 0.75em !important; text-align: center; }
 
 /* 이벤트 색상 */
 .event-duty { background-color: #e67e22 !important; border: none; }
 .event-sleep { background-color: #7f8c8d !important; border: none; }
 .event-leave { background-color: #2ecc71 !important; border: none; }
-.event-rest { background-color: #9b59b6 !important; border: none; pointer-events: none; }
+.event-rest { background-color: #9b59b6 !important; border: none; pointer-events: none; opacity: 0.7; }
