@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>통신병 전투휴무 관리 시스템</title>
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 사이드바: 인원 및 마일리지 현황 -->
+        <div class="sidebar">
+            <h2>👥 통신반 현황</h2>
+            <p>총 인원: <span id="total-personnel">5</span>명 (최소 출근 3명)</p>
+            <ul id="personnel-list">
+                <!-- JS에서 인원 리스트 렌더링 -->
+            </ul>
+
+            <hr>
+
+            <!-- 당직 등록 폼 -->
+            <h3>🛡️ 당직 등록</h3>
+            <form id="duty-form">
+                <input type="date" id="duty-date" required>
+                <select id="duty-person" required></select>
+                <select id="duty-type" required>
+                    <option value="day">주간 당직 (토,일)</option>
+                    <option value="night">야간 당직 (평일,주말)</option>
+                </select>
+                <button type="submit">당직 추가</button>
+            </form>
+
+            <hr>
+
+            <!-- 휴무 신청 폼 -->
+            <h3>🌴 휴무 신청</h3>
+            <form id="leave-form">
+                <input type="date" id="leave-date" required>
+                <select id="leave-person" required></select>
+                <select id="leave-type" required>
+                    <option value="full">종일 (마일리지 1 차감)</option>
+                    <option value="am">오전 반투 (0.5 차감)</option>
+                    <option value="pm">오후 반투 (0.5 차감)</option>
+                </select>
+                <button type="submit">휴무 신청</button>
+            </form>
+            <button id="reset-btn" style="margin-top:20px; background:#e74c3c;">데이터 초기화</button>
+        </div>
+
+        <!-- 캘린더 영역 -->
+        <div class="calendar-wrap">
+            <div id="calendar"></div>
+        </div>
+    </div>
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
